@@ -5,54 +5,66 @@ import BreakSessionDisplay from './BreakSessionDisplay';
 import BreakSessionAdjuster from './BreakSessionAdjuster';
 import SessionLenghtDisplay from './SessionLengthDisplay';
 import SessionLenghtAdjuster from './SessionLengthAdjuster';
-
+import beep from '../../src/beep.mp3';
 
 
 function Pomodoro () {
 
-    const [breakLength, setBreaklength] = useState(5);
-    const [sessionLength, setSesssionLength] = useState(25);
+    const [breakLength, setBreakLength] = useState(5);
+    const [sessionLength, setSessionLength] = useState(25);
     const [isRunning, setIsRunning] = useState(false);
-    const [currentTime, setCurrentime] = useState(sessionLength * 60);
+    const [currentTime, setCurrenTime] = useState(sessionLength * 60);
     const [isSession, setIsSession] = useState(true);
+    const audio = new Audio(beep);
 
     useEffect(() => {
-        let interval = null;
-        if(isRunning) {
-            interval = setInterval (() => {
-                setCurrentime((prevTime)=> prevTime -1 );
-            }, 1000);
-        } else {
-            clearInterval (interval);
+       let interval = null;
+        if(currentTime === 0){
+            audio.play();
+            setIsSession((prevIsSession) => !prevIsSession);
+            setCurrenTime ((prevIsSession) => prevIsSession ? breakLength*60 : sessionLength*60);
         }
+        else if(isRunning) {
+        interval = setInterval (() => {
+                setCurrenTime((prevTime)=> prevTime -1 );
+            }, 1000);
+        
         return () => clearInterval(interval);
-    }, [isRunning, currentTime]);
+        }
+    }, [isRunning, currentTime, breakLength, sessionLength]);
 
 
-    const startTimer = () => setIsRunning(true);
-    const pauseTimer = () => setIsRunning(false);
+    const toggleTimer = () => setIsRunning((prevState) => !prevState);
+    
     const resetTimer = () => {
         setIsRunning(false);
-        setCurrentime(sessionLength*60);
+        setCurrenTime(sessionLength*60);
         setIsSession(true);
-        setBreaklength(5);
-        setSesssionLength(25);
+        setBreakLength(5);
+        setSessionLength(25);
+        audio.pause();
+        audio.currentTime = 0;
     };
 
 
 
 
-
+// how do play a beep when the session is finish?
 
     return (
 
         <div className="pomodoro">
             <BreakSessionDisplay breakLength={breakLength} />
-            <BreakSessionAdjuster setBreaklength={setBreaklength} />
+            <BreakSessionAdjuster setBreakLength={setBreakLength} />
             <SessionLenghtDisplay sessionLength={sessionLength} />
-            <SessionLenghtAdjuster setSesssionLength={setSesssionLength} />
-            <Timer currentTime={currentTime} isSession={isSession} />
-            <TimerControls startTimer={startTimer} pauseTimer={pauseTimer} resetTimer={resetTimer} />
+            <SessionLenghtAdjuster setSessionLength={setSessionLength} />
+            <Timer currentTime={currentTime} 
+                    isSession={isSession} />
+            <TimerControls 
+                    toggleTimerr={toggleTimer} 
+                    resetTimer={resetTimer} 
+                    isRunning={isRunning} 
+                    />
 
         </div>
     );
