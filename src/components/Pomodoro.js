@@ -34,7 +34,13 @@ function Pomodoro () {
     }, [isRunning, currentTime, breakLength, sessionLength]);
 
 
-    const toggleTimer = () => setIsRunning((prevState) => !prevState);
+    const startTimer = () => {
+        setIsRunning(true);
+    };
+
+    const pauseTimer = () => {
+        setIsRunning(false);
+    }
     
     const resetTimer = () => {
         setIsRunning(false);
@@ -54,16 +60,16 @@ function Pomodoro () {
     return (
 
         <div className="pomodoro">
-            <BreakSessionDisplay breakLength={breakLength} />
-            <BreakSessionAdjuster setBreakLength={setBreakLength} />
-            <SessionLenghtDisplay sessionLength={sessionLength} />
-            <SessionLenghtAdjuster setSessionLength={setSessionLength} />
+            {/*<BreakSessionDisplay breakLength={breakLength} />*/}
+            {/*<BreakSessionAdjuster setBreakLength={setBreakLength} />*/}
+            {/*<SessionLenghtDisplay sessionLength={sessionLength} />*/}
+            {/*<SessionLenghtAdjuster setSessionLength={setSessionLength} />*/}
             <Timer currentTime={currentTime} 
                     isSession={isSession} />
             <TimerControls 
-                    toggleTimerr={toggleTimer} 
+                    startTimer={startTimer}
+                    pauseTimer={pauseTimer}
                     resetTimer={resetTimer} 
-                    isRunning={isRunning} 
                     />
 
         </div>

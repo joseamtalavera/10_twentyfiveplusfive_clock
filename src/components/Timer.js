@@ -10,7 +10,7 @@ function Timer ({currentTime, isSession}) {
 
     return (
         <div className="timer">
-            <h2>{isSession ? "Sesion" : "Break"}</h2>
+            <h2>Session</h2>
             <p>{timeString}</p>
         </div>
     )
