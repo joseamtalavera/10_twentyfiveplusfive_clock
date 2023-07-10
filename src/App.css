@@ -57,3 +57,24 @@ body {
 .timer-controls #reset:hover {
   background-color: #d32f2f;
 }
+
+
+.left-column {
+  display: flex;
+  align-items: center;
+}
+
+.left-column .adjuster {
+  margin-right: 1rem;
+}
+
+.left-column .adjuster svg {
+  fill: #000;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.left-column .adjuster svg:hover {
+  fill: #888;
+}

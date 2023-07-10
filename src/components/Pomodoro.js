@@ -60,10 +60,14 @@ function Pomodoro () {
     return (
 
         <div className="pomodoro">
-            {/*<BreakSessionDisplay breakLength={breakLength} />*/}
-            {/*<BreakSessionAdjuster setBreakLength={setBreakLength} />*/}
-            {/*<SessionLenghtDisplay sessionLength={sessionLength} />*/}
-            {/*<SessionLenghtAdjuster setSessionLength={setSessionLength} />*/}
+            <div className="left-column">
+                <BreakSessionDisplay breakLength={breakLength} />
+                <BreakSessionAdjuster setBreakLength={setBreakLength} />
+            </div>
+            <div className="right-column">
+                {/*<SessionLenghtDisplay sessionLength={sessionLength} />*/}
+                {/*<SessionLenghtAdjuster setSessionLength={setSessionLength} />*/}
+            </div>
             <Timer currentTime={currentTime} 
                     isSession={isSession} />
             <TimerControls 
