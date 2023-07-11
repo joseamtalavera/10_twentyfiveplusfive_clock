@@ -4,8 +4,8 @@ function BreakSessionDisplay ({breakLength}) {
 
     return (
         <div className='break-session-display'>
-            <h2>Break Length</h2>
-            <p>{breakLength}</p>
+            <h2 id="break-label">Break Length</h2>
+            <p id="break-length">{breakLength}</p>
         </div>
     )
 }

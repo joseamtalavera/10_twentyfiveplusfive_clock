@@ -16,11 +16,13 @@ function BreakSessionAdjuster ({setBreakLength}) {
             
             <div className='adjuster-controls'>
                 <FontAwesomeIcon
+                    id="break-decrement"
                     icon={faArrowDown}
                     onClick={() => setBreakLength((prevBreakLength) => prevBreakLength -1)} 
                     />
                 <span>{setBreakLength}</span>
                 <FontAwesomeIcon
+                    id="break-increment"
                     icon={faArrowUp}
                     onClick={() => setBreakLength((prevBreakLength) => prevBreakLength +1)}
                     />

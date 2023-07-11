@@ -1,6 +1,6 @@
 import React from "react";
 
-function Timer ({currentTime, isSession}) {
+function Timer ({currentTime, sessionLength}) {
     const minutes = Math.floor(currentTime / 60);
     const seconds = currentTime % 60;
 
@@ -10,8 +10,8 @@ function Timer ({currentTime, isSession}) {
 
     return (
         <div className="timer">
-            <h2>Session</h2>
-            <p>{timeString}</p>
+            <h2 id="session-length">Session ({sessionLength})</h2>
+            <p >{timeString}</p>
         </div>
     )
 }
