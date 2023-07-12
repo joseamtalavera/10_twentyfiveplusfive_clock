@@ -62,11 +62,17 @@ function Pomodoro () {
         <div className="pomodoro">
             <div className="left-column">
                 <BreakSessionDisplay breakLength={breakLength} />
-                <BreakSessionAdjuster setBreakLength={setBreakLength} />
+                <BreakSessionAdjuster 
+                    breakLength={breakLength}
+                    setBreakLength={setBreakLength} />
             </div>
             <div className="right-column">
                 <SessionLenghtDisplay sessionLength={sessionLength} />
-                <SessionLenghtAdjuster setSessionLength={setSessionLength} />
+                <SessionLenghtAdjuster 
+                currentIsSession={isSession}
+                setCurrentIsSession={setIsSession}
+                    sessionLength={sessionLength}
+                    setSessionLength={setSessionLength} />
             </div>
             <Timer currentTime={currentTime} 
                     sessionLength={sessionLength} />

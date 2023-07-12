@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 
-function SessionLengthAdjuster ({setSessionLength}) {
+function SessionLengthAdjuster ({sessionLength, setSessionLength}) {
 
     const increaseSessionLength = () => {
         setSessionLength((prevLength) => prevLength + 1);
@@ -20,7 +20,7 @@ function SessionLengthAdjuster ({setSessionLength}) {
                     icon={faArrowDown}
                     onClick={() => setSessionLength((prevSessionLength) => prevSessionLength -1)} 
                     />
-                <span>{setSessionLength}</span>
+                <span>{sessionLength}</span>
                 <FontAwesomeIcon
                     id="session-increment"
                     icon={faArrowUp}

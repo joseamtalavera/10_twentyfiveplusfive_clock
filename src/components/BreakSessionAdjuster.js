@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 
-function BreakSessionAdjuster ({setBreakLength}) {
+function BreakSessionAdjuster ({breakLength, setBreakLength}) {
 
     const increaseBreakLength = () => {
         setBreakLength((prevLength) => prevLength + 1);
@@ -18,13 +18,13 @@ function BreakSessionAdjuster ({setBreakLength}) {
                 <FontAwesomeIcon
                     id="break-decrement"
                     icon={faArrowDown}
-                    onClick={() => setBreakLength((prevBreakLength) => prevBreakLength -1)} 
+                    onClick={decreaseBreakLength}
                     />
-                <span>{setBreakLength}</span>
+                <span>{breakLength}</span>
                 <FontAwesomeIcon
                     id="break-increment"
                     icon={faArrowUp}
-                    onClick={() => setBreakLength((prevBreakLength) => prevBreakLength +1)}
+                    onClick={increaseBreakLength}
                     />
             </div>
         </div>
@@ -32,3 +32,6 @@ function BreakSessionAdjuster ({setBreakLength}) {
 };
 
 export default BreakSessionAdjuster;
+
+//onClick={() => setBreakLength((prevBreakLength) => prevBreakLength -1)}
+//onClick={() => setBreakLength((prevBreakLength) => prevBreakLength +1)}

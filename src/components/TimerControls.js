@@ -7,9 +7,9 @@ function TimerControls({startTimer, pauseTimer, resetTimer}) {
 
     return (
         <div className="timer-controls">
-            <FontAwesomeIcon icon={faPlay} onClick={startTimer} />
-            <FontAwesomeIcon icon={faPause} onClick={pauseTimer} />
-            <FontAwesomeIcon icon={faRedo} onClick={resetTimer} />
+            <FontAwesomeIcon icon={faPlay}  onClick={startTimer} id="start_stop"/>
+            <FontAwesomeIcon icon={faPause} onClick={pauseTimer} id="start_stop"/>
+            <FontAwesomeIcon icon={faRedo} onClick={resetTimer} id="reset"/>
 
         </div>
     )
