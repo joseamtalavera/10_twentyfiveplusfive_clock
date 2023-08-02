@@ -4,6 +4,9 @@ import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 
 function BreakSessionAdjuster ({breakLength, setBreakLength}) {
 
+    //declaring these two constant and recive it as prop from the parent will not affect 
+    //another component
+    
     const increaseBreakLength = () => {
         setBreakLength((prevLength) => prevLength + 1);
     };

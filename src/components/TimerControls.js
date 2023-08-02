@@ -3,16 +3,42 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faRedo } from "@fortawesome/free-solid-svg-icons";
 
 
-function TimerControls({startTimer, pauseTimer, resetTimer}) {
+/* function TimerControls({isRunning, startTimer, pauseTimer, resetTimer}) {
+    
+    const handleStartPauseClick =() => {
+    if(isRunning){
+        pauseTimer();
+    }else {
+        startTimer();
+    }
+};
 
     return (
         <div className="timer-controls">
-            <FontAwesomeIcon icon={faPlay}  onClick={startTimer} id="start_stop"/>
-            <FontAwesomeIcon icon={faPause} onClick={pauseTimer} id="start_stop"/>
-            <FontAwesomeIcon icon={faRedo} onClick={resetTimer} id="reset"/>
+            <FontAwesomeIcon 
+                icon={isRunning ? faPause : faPlay}  onClick={handleStartPauseClick} id="start_stop"/>
+            
+            <FontAwesomeIcon 
+                icon={faRedo} onClick={resetTimer} id="reset"/>
 
         </div>
     )
+} */
+
+
+
+function TimerControls({isRunning, startTimer, pauseTimer, resetTimer}) {
+    
+    return (
+        <div className="timer-controls">
+            <button onClick={isRunning ? pauseTimer : startTimer} id="start_stop">
+                {isRunning ? "Pause" : "Start"}
+            </button>
+            <button onClick={resetTimer} id="reset">
+                Reset
+            </button>
+        </div>
+    );
 }
 
 export default TimerControls;
