@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faRedo } from "@fortawesome/free-solid-svg-icons";
+
 
 
 /* function TimerControls({isRunning, startTimer, pauseTimer, resetTimer}) {

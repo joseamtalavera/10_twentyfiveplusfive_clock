@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import Timer from './Timer';
 import TimerControls from './TimerControls';
 import BreakSessionDisplay from './BreakSessionDisplay';
@@ -16,7 +16,7 @@ function Pomodoro () {
     const [isRunning, setIsRunning] = useState(false);
     const [currentTime, setCurrentTime] = useState(sessionLength * 60);
     const [isSession, setIsSession] = useState(true);
-    const audio = new Audio(beep);
+    const audio = useMemo (() => new Audio(beep),[]);
     const [sessionUpdated, setSessionUpdated] = useState(false);
     const [initialSessionLength, setInitialSessionLength] = useState(25);
     
