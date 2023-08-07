@@ -10,13 +10,7 @@ import {faArrowUp, faArrowDown} from '@fortawesome/free-solid-svg-icons';
 
 function SessionLengthAdjuster ({sessionLength, increaseSessionLength, decreaseSessionLength}) {
 
-    // const increaseSessionLength = () => {
-    //     setSessionLength((prevLength) => prevLength + 1);
-    // };
-    // const decreaseSessionLength = () => {
-    //     setSessionLength ((preveLength) => (preveLength > 1 ? preveLength -1 : preveLength));   
-    // };
-
+    
     return (
         <div className='break-session-adjuster'>
             

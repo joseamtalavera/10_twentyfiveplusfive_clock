@@ -16,9 +16,10 @@ function Pomodoro () {
     const [isRunning, setIsRunning] = useState(false);
     const [currentTime, setCurrentTime] = useState(sessionLength * 60);
     const [isSession, setIsSession] = useState(true);
-    const audio = useMemo (() => new Audio(beep),[]);
+    const audio = useMemo(() => new Audio(beep), []);
+
     const [sessionUpdated, setSessionUpdated] = useState(false);
-    const [initialSessionLength, setInitialSessionLength] = useState(25);
+    const [initialSessionLength] = useState(25);
     
     
 
