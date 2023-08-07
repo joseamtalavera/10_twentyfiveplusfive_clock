@@ -19,7 +19,7 @@ function Pomodoro () {
     const audio = useMemo(() => new Audio(beep), []);
 
     const [sessionUpdated, setSessionUpdated] = useState(false);
-    const [initialSessionLength] = useState(25);
+    const [initialSessionLength, setInitialSessionLength] = useState(25);
     
     
 
@@ -93,8 +93,20 @@ function Pomodoro () {
         audio.pause();
         audio.currentTime = 0;
     };
-    
 
+    const increaseSessionLength = () => {
+        setSessionLength((prevLength) => prevLength + 1);
+        setInitialSessionLength((prevLength) => prevLength + 1); // Update the initial session length as well
+        setSessionUpdated(true);
+      };
+    
+      const decreaseSessionLength = () => {
+        setSessionLength((prevLength) => (prevLength > 1 ? prevLength - 1 : prevLength));
+        setInitialSessionLength((prevLength) => (prevLength > 1 ? prevLength - 1 : prevLength)); // Update the initial session length as well
+        setSessionUpdated(true);
+      };
+    
+/* 
     const increaseSessionLength = () => {
         setSessionLength((prevLength) => prevLength + 1);
         setSessionUpdated(true);
@@ -105,7 +117,7 @@ function Pomodoro () {
           
         setSessionUpdated(true);
         //setCurrentTime((prevTime) => (prevTime > 60 ? prevTime - 60 : 60))
-    };
+    }; */
 
 
 
