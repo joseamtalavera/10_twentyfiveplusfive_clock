@@ -45,7 +45,7 @@ function Pomodoro () {
     }
 
     return () => clearInterval(interval);
-}, [isRunning, currentTime, breakLength, sessionLength]);
+}, [isRunning, currentTime, breakLength, sessionLength, audio]);
 
 
 
